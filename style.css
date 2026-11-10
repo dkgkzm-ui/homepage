@@ -1,0 +1,25 @@
+/* Custom Scrollbar for code blocks */
+pre::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+pre::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 4px;
+}
+pre::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+}
+
+/* Slider transitions */
+.slide-container {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Code Syntax Highlighting Simulation */
+.c-keyword { color: #569cd6; }
+.c-type { color: #4ec9b0; }
+.c-string { color: #ce9178; }
+.c-comment { color: #6a9955; }
+.c-method { color: #dcdcaa; }

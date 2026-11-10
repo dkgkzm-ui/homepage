@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Developer Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- 외부 CSS 연결 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            dark: '#0f172a',
+                            darker: '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-darker text-gray-200 font-sans antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-brand-dark/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="font-bold text-xl tracking-tight text-white flex items-center gap-2">
+                <i class="fa-solid fa-gamepad text-brand-cyan"></i>
+                <span>Dev.Portfolio</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#project" class="text-sm font-medium hover:text-brand-cyan transition-colors">프로젝트</a>
+                <a href="#code-review" class="text-sm font-medium hover:text-brand-cyan transition-colors">코드 리뷰</a>
+                <a href="#contact" class="text-sm font-medium hover:text-brand-cyan transition-colors">연락처</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+        
+        <!-- Hero Title -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-blue mb-4">
+                PROJECT: SHADOW RUNNER
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                스타일리쉬한 2D 플랫포머 액션 게임. 끊임없는 도전과 빠른 템포의 전투를 경험하세요.
+            </p>
+        </section>
+
+        <!-- Image & Video Slider -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative group">
+            <div class="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+                <div id="slider" class="slide-container flex w-full h-full">
+                    <!-- Slide 1: Screenshot -->
+                    <div class="w-full h-full flex-shrink-0 relative">
+                        <img src="https://placehold.co/1280x720/1e293b/00f2fe?text=Game+Screenshot+1" alt="게임 스크린샷 1" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-black/60 px-3 py-1 rounded text-sm text-white">메인 타이틀 화면</div>
+                    </div>
+                    <!-- Slide 2: Screenshot -->
+                    <div class="w-full h-full flex-shrink-0 relative">
+                        <img src="https://placehold.co/1280x720/1e293b/00f2fe?text=Game+Screenshot+2" alt="게임 스크린샷 2" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-black/60 px-3 py-1 rounded text-sm text-white">전투 시스템 (보스전)</div>
+                    </div>
+                    <!-- Slide 3: Screenshot -->
+                    <div class="w-full h-full flex-shrink-0 relative">
+                        <img src="https://placehold.co/1280x720/1e293b/00f2fe?text=Game+Screenshot+3" alt="게임 스크린샷 3" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-black/60 px-3 py-1 rounded text-sm text-white">인벤토리 및 스킬 트리</div>
+                    </div>
+                    <!-- Slide 4: Video -->
+                    <div class="w-full h-full flex-shrink-0 relative bg-black flex items-center justify-center">
+                        <video id="game-video" class="w-full h-full object-cover" controls muted loop>
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                        <div class="absolute top-4 right-4 bg-red-600/80 px-3 py-1 rounded text-sm text-white font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-play"></i> Gameplay Video
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-brand-cyan/80 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer backdrop-blur-sm z-10">
+                    <i class="fa-solid fa-chevron-left text-xl"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-brand-cyan/80 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer backdrop-blur-sm z-10">
+                    <i class="fa-solid fa-chevron-right text-xl"></i>
+                </button>
+
+                <!-- Dots Indicator -->
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    <button onclick="goToSlide(0)" class="slider-dot w-3 h-3 rounded-full bg-white transition-all shadow-[0_0_8px_rgba(255,255,255,0.8)]"></button>
+                    <button onclick="goToSlide(1)" class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all"></button>
+                    <button onclick="goToSlide(2)" class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all"></button>
+                    <button onclick="goToSlide(3)" class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details & Summary -->
+        <section id="project" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Info Cards -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="bg-gray-800/50 p-6 rounded-2xl border border-gray-700/50 backdrop-blur-sm">
+                        <h3 class="text-sm text-brand-cyan font-bold uppercase tracking-wider mb-4">개발 환경</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">개발 언어</span>
+                                <span class="font-semibold text-white px-3 py-1 bg-blue-900/30 text-blue-300 rounded-md text-sm border border-blue-800/50">C#</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">엔진/프레임워크</span>
+                                <span class="font-semibold text-white px-3 py-1 bg-gray-900/50 text-gray-300 rounded-md text-sm border border-gray-600/50 flex items-center gap-1">
+                                    <i class="fa-brands fa-unity text-white"></i> Unity
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">개발 기간</span>
+                                <span class="font-semibold text-white">2개월</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://github.com/dkgkzm-ui/ptp" target="_blank" class="w-full flex items-center justify-center gap-3 bg-gray-800 hover:bg-gray-700 text-white p-4 rounded-2xl border border-gray-700 transition-colors shadow-lg group">
+                        <i class="fa-brands fa-github text-2xl group-hover:text-white text-gray-400 transition-colors"></i>
+                        <span class="font-semibold text-lg">GitHub 저장소 보기</span>
+                    </a>
+                </div>
+
+                <!-- Description & Features -->
+                <div class="lg:col-span-2 bg-gray-800/50 p-8 rounded-2xl border border-gray-700/50 backdrop-blur-sm">
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-brand-blue"></i> 프로젝트 소개 및 특기사항
+                    </h2>
+                    
+                    <div class="space-y-6 text-gray-300 leading-relaxed">
+                        <p>
+                            이 프로젝트는 유니티 엔진과 C#을 활용하여 2개월간 개발한 2D 횡스크롤 액션 게임입니다. 
+                            플레이어의 조작감과 타격감을 극대화하는데 초점을 맞추었으며, 객체 지향 프로그래밍(OOP) 원칙을 준수하여 확장성 있는 코드를 작성하려 노력했습니다.
+                        </p>
+                        
+                        <div>
+                            <h3 class="text-white font-semibold mb-2 text-lg">✨ 주요 구현 기능</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong class="text-brand-cyan">FSM (유한 상태 기계) 패턴:</strong> 플레이어 및 적 AI의 상태(Idle, Run, Attack, Die 등)를 효율적으로 관리.</li>
+                                <li><strong class="text-brand-cyan">오브젝트 풀링 (Object Pooling):</strong> 총알 및 이펙트 생성 시 발생하는 메모리 할당을 최소화.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Code Review Section -->
+        <section id="code-review" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+            <h2 class="text-3xl font-bold mb-8 text-center">
+                <i class="fa-solid fa-code text-brand-cyan mr-2"></i> 핵심 코드 리뷰
+            </h2>
+
+            <div class="bg-[#1e1e1e] rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+                <div class="bg-[#2d2d2d] px-4 py-3 flex items-center border-b border-black/50">
+                    <div class="flex gap-2 mr-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-gray-400 text-sm font-mono flex-1 text-center pr-12">PlayerController.cs</span>
+                </div>
+                
+                <div class="p-6 overflow-x-auto text-sm md:text-base font-mono leading-relaxed">
+<pre><code><span class="c-keyword">using</span> UnityEngine;
+<span class="c-keyword">using</span> System;
+
+<span class="c-keyword">public class</span> <span class="c-type">PlayerController</span> : <span class="c-type">MonoBehaviour</span>
+{
+    [<span class="c-type">SerializeField</span>] <span class="c-keyword">private</span> <span class="c-keyword">float</span> moveSpeed = <span class="c-string">5f</span>;
+    <span class="c-keyword">public event</span> <span class="c-type">Action</span> OnPlayerDeath;
+
+    <span class="c-keyword">private</span> <span class="c-type">StateMachine</span> stateMachine;
+
+    <span class="c-keyword">private void</span> <span class="c-method">Awake</span>()
+    {
+        stateMachine = <span class="c-keyword">new</span> <span class="c-type">StateMachine</span>();
+        stateMachine.<span class="c-method">ChangeState</span>(<span class="c-keyword">new</span> <span class="c-type">PlayerIdleState</span>(<span class="c-keyword">this</span>));
+    }
+
+    <span class="c-keyword">private void</span> <span class="c-method">Update</span>()
+    {
+        stateMachine.<span class="c-method">Update</span>();
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-[#090b14] border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Let's Work Together</h2>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
+                    <a href="mailto:developer@example.com" class="flex items-center gap-4 bg-gray-800/50 hover:bg-gray-800 px-6 py-4 rounded-xl border border-gray-700 w-full sm:w-auto">
+                        <div class="w-12 h-12 bg-brand-cyan/20 text-brand-cyan rounded-full flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm text-gray-400">Email</p>
+                            <p class="text-white font-medium">developer@example.com</p>
+                        </div>
+                    </a>
+                    <a href="tel:010-1234-5678" class="flex items-center gap-4 bg-gray-800/50 hover:bg-gray-800 px-6 py-4 rounded-xl border border-gray-700 w-full sm:w-auto">
+                        <div class="w-12 h-12 bg-brand-blue/20 text-brand-blue rounded-full flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm text-gray-400">Phone</p>
+                            <p class="text-white font-medium">010-1234-5678</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 외부 스크립트 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>
